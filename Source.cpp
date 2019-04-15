@@ -54,14 +54,17 @@ public:
 
 bool isFibonacci(Numar_Fibonacci_mare &a)
 {
-	Numar_Fibonacci_mare b(0);
+	Numar_Fibonacci_mare b(0),c(1),d(1);
 	int i = 1;
-	while (b < a)
+	if (b == a or c == a)
+		return true;
+	while (d < a)
 	{
-		b(i);
-		i++;
+		d = b + c;
+		b = c;
+		c = d;
 	}
-	if (b == a)
+	if (d == a)
 		return true;
 	else return false;
 }
@@ -411,7 +414,7 @@ void Numar_Fibonacci_mare::afisare(ostream& out)
 		int i;
 		try{
 			if (isFibonacci(*this) == false)
-				throw "\n Numarul pe care incercati sa il afisati nu e un umar fibonacci.\n";
+				throw "\n Numarul pe care incercati sa il afisati nu e un numar fibonacci.\n";
 		}
 		catch (const char* s)
 		{
